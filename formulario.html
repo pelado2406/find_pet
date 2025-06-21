@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar Datos de la Mascota</title>
+</head>
+<body>
+    <h2>Completar información</h2>
+    <form id="formMascota">
+        <input type="hidden" id="codigo">
+        <label>Nombre:
+            <input type="text" name="nombre" required>
+        </label><br>
+        <label>Teléfono:
+            <input type="tel" name="telefono" required>
+        </label><br>
+        <label>WhatsApp:
+            <input type="tel" name="whatsapp" required>
+        </label><br>
+        <label>Dirección:
+            <input type="text" name="direccion" required>
+        </label><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+    window.onload = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const codigo = urlParams.get('codigo');
+        document.getElementById("codigo").value = codigo;
+    }
+
+    document.getElementById("formMascota").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const datos = new FormData(this);
+        const codigo = document.getElementById("codigo").value;
+
+        fetch(`https://api.whatsapp.com/send?phone=5492974019267&text=Nueva mascota registrada con el código ${codigo}`, {
+            method: "GET"
+        });
+
+        alert("Datos enviados correctamente.");
+        window.location.href = "https://ubipet.netlify.app";
+    });
+    </script>
+</body>
+</html>
