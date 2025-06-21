@@ -1,5 +1,5 @@
 
-const validCodes = ["ABC123", "XYZ789", "QWE456"]; // Simulados
+const validCodes = ["ABC123", "XYZ789", "QWE456", "M688136", "R75648"];
 
 document.getElementById("registroForm").addEventListener("submit", function(e) {
     e.preventDefault();

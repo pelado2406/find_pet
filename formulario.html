@@ -35,12 +35,8 @@
         const datos = new FormData(this);
         const codigo = document.getElementById("codigo").value;
 
-        fetch(`https://api.whatsapp.com/send?phone=5492974019267&text=Nueva mascota registrada con el código ${codigo}`, {
-            method: "GET"
-        });
-
-        alert("Datos enviados correctamente.");
-        window.location.href = "https://ubipet.netlify.app";
+        // Redirige a WhatsApp con todos los datos
+        window.location.href = `https://wa.me/5492974019267?text=🐶+Registro+nuevo:+%0ACodigo:+${codigo}%0ANombre:+${datos.get("nombre")}%0ATel:+${datos.get("telefono")}%0AWhatsApp:+${datos.get("whatsapp")}%0ADirección:+${datos.get("direccion")}`;
     });
     </script>
 </body>
